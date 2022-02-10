@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 
 let initialState = {
-    products: []
+    products: [],
 }
 
 export const getProducts = createAsyncThunk(
@@ -19,7 +19,9 @@ export const ProductsSlice = createSlice({
     name: 'Products',
     initialState,
     reducers: {
-
+         resetProductsInCart: (state, action) => {
+             state.productsInCart = []
+         }
     },
     extraReducers: (builder) => {
         builder
@@ -32,6 +34,8 @@ export const ProductsSlice = createSlice({
     }
 })
 
+
+export const { resetProductsInCart } = ProductsSlice.actions
 
 
 export default ProductsSlice.reducer

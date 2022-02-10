@@ -1,9 +1,9 @@
 import React from 'react'
-import MyRoutes from './Routes/MyRoutes'
+import Main from './Components/Main/Main'
 
 const App = () => {
   return (
-    <MyRoutes />
+    <Main />
   )
 }
 

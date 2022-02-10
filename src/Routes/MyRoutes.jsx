@@ -4,7 +4,9 @@ import { Routes, Route } from 'react-router-dom'
 import { getCategories } from "../Redux/Slice/Categories"
 import { useSelector, useDispatch } from "react-redux";
 
-import Main from '../Components/Main';
+import Main from '../Components/Main/Main';
+import MyProducts from '../Components/Products/MyProducts';
+import MyCart from '../Components/Cart/MyCart';
 
 
 const MyRoutes = () => {
@@ -17,8 +19,9 @@ const MyRoutes = () => {
     return (
         <>
             <Routes>
-                <Route path='/' element={<Main />} />
-                {CategoriesState[0] && CategoriesState[0].map((category, index) => <Route key={index} path={'/' + category.replace(' ', '')} element={<Main />} />)}
+                <Route path='/' element={<MyProducts />} />
+                <Route path='/cart' element={<MyCart />} />
+                {CategoriesState[0] && CategoriesState[0].map((category, index) => <Route key={index} path={'/' + category.replace(' ', '')} element={<MyProducts />} />)}
             </Routes>
         </>
     )

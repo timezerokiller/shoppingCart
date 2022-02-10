@@ -1,44 +1,45 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios"
-import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 let initialState = {
-    Cart: {
-        products: []
-    }
+    Cart: [],
 }
 
-export const addNewProductCart = createAsyncThunk(
-    'Cart/addNewProductCart',
-    async (products, { dispatch }) => {
-        let url = `https://fakestoreapi.com/carts`
-        const res = await axios.post(url, products)
-        return res
-    }
-)
 
 
 export const CartSlice = createSlice({
     name: 'Cart',
     initialState,
     reducers: {
-
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(addNewProductCart.fulfilled, (state, action) => {
-                state.Cart = {
-                    ...action.payload.data,
-                    products: [...state.Cart.products, action.payload.data.products]
-
+        addProductInCart: (state, action) => {
+            state.Cart.push(action.payload.products)
+        },
+        updateProductInCart: (state, action) => {
+            state.Cart.forEach(element => {
+                if(element.productId = action.payload.products.productId) {
+                    element.quality = element.quality + action.payload.products.quality
                 }
-            })
-            .addCase(addNewProductCart.pending, (state, action) => {
-                //state.cart = null
-            })
+            });
+        },
+        deleteProductInCart: (state,action) => {
+            state.Cart = state.Cart.filter((product) => product.productId != action.payload)
+        },
+        deleteAllProductInCart: (state,action) => {
+            for(let i = 0; i < action.payload.length; i++) {
+                state.Cart = state.Cart.filter((product) => product.productId != action.payload[i])
+            }
+        },
+        incrimentQualityProductCart: (state, action) => {
+            let i = action.payload
+            state.Cart[i].quality = state.Cart[i].quality + 1
+               
+        },
+        decrimentQualityProductCart: (state, action) => {
+            let i = action.payload
+            state.Cart[i].quality = state.Cart[i].quality - 1
+        }
     }
 })
 
-
+export const { addProductInCart, updateProductInCart, deleteProductInCart, deleteAllProductInCart ,incrimentQualityProductCart, decrimentQualityProductCart } = CartSlice.actions
 
 export default CartSlice.reducer
