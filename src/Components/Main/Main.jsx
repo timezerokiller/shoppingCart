@@ -41,7 +41,7 @@ function Main() {
                     <div className={style.fixedWidgets}>
                         <ShoppingCartOutlined style={{ fontSize: "40px", marginTop: "10px", color: "white" }} />
 
-                        <span style={{ fontSize: "30px", color: "red", paddingTop: "6px" }} >
+                        <span style={{ fontSize: "30px", color: "white", paddingTop: "6px" }} >
                             {totalProductsInCart}
                         </span>
                     </div>

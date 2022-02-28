@@ -11,8 +11,8 @@ import { getCategories } from "../../Redux/Slice/Categories"
 
 
 // Дизайн
-import { Layout, Menu} from 'antd';
-const { Header} = Layout;
+import { Layout, Menu } from 'antd';
+const { Header } = Layout;
 ////
 
 
@@ -35,6 +35,9 @@ function MyHeader() {
                                 {category}
                             </Link>
                         </Menu.Item>)}
+                    <Menu.Item>
+                        <Link to='/login'>Login</Link>
+                    </Menu.Item>
                 </Menu>
             </Header>
         </>

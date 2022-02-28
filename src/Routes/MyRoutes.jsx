@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Main from '../Components/Main/Main';
 import MyProducts from '../Components/Products/MyProducts';
 import MyCart from '../Components/Cart/MyCart';
+import Login from '../Components/MyAuth/Login'
 
 
 const MyRoutes = () => {
@@ -21,6 +22,7 @@ const MyRoutes = () => {
             <Routes>
                 <Route path='/' element={<MyProducts />} />
                 <Route path='/cart' element={<MyCart />} />
+                <Route path='/login' element={<Login />} />
                 {CategoriesState[0] && CategoriesState[0].map((category, index) => <Route key={index} path={'/' + category.replace(' ', '')} element={<MyProducts />} />)}
             </Routes>
         </>
