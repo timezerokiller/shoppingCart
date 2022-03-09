@@ -2,14 +2,21 @@ import React from 'react'
 
 import { Form, Input, Button, Checkbox, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { useCookies, withCookies, Cookies } from 'react-cookie';
 
 
 
-function Login() {
+function Login({cookies}) {
+
+    const [cookie, setCookie] = useCookies(['login']);
+
+    console.log(cookies.get('login')) 
 
 
     const onFinish = (values) => {
+        setCookie('login', true)
         console.log('Received values of form: ', values);
+        
     };
 
 
@@ -50,4 +57,5 @@ function Login() {
     )
 }
 
-export default Login
+
+export default withCookies(Login)

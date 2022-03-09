@@ -15,7 +15,7 @@ export const CartSlice = createSlice({
         },
         updateProductInCart: (state, action) => {
             state.Cart.forEach(element => {
-                if(element.productId = action.payload.products.productId) {
+                if(element.productId === action.payload.products.productId) {
                     element.quality = element.quality + action.payload.products.quality
                 }
             });

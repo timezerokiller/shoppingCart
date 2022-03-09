@@ -35,7 +35,7 @@ function MyHeader() {
                                 {category}
                             </Link>
                         </Menu.Item>)}
-                    <Menu.Item>
+                    <Menu.Item key={'login'}>
                         <Link to='/login'>Login</Link>
                     </Menu.Item>
                 </Menu>

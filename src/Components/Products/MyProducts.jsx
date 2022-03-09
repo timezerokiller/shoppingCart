@@ -14,17 +14,25 @@ import { addProductInCart, updateProductInCart } from "../../Redux/Slice/Shoping
 function MyProducts() {
 
     const dispatch = useDispatch()
-    
+
     const ProductsState = useSelector(state => state.ProductsSlice.products)
-    const CartState = useSelector(state => state.CartSlice.Cart)  
-    
+    const CartState = useSelector(state => state.CartSlice.Cart)
+
 
 
     return (
         <>
             <Row gutter={16}>
                 {ProductsState
-                    ? ProductsState.map(product => <MyCard key={product.id} {...product} CartState={CartState} dispatch={dispatch} addNewProductCart={addProductInCart} updateProductInCart={updateProductInCart} />)
+                    ? ProductsState.map(product =>
+                        <MyCard
+                            key={product.id} {...product}
+                            CartState={CartState}
+                            dispatch={dispatch}
+                            addNewProductCart={addProductInCart}
+                            updateProductInCart={updateProductInCart}
+
+                        />)
                     : <h3>Загрузка</h3>
                 }
             </Row>
