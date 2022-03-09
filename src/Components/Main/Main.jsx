@@ -46,7 +46,6 @@ function Main() {
                         </span>
                     </div>
                 </Link>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
             </Layout>
         </div>
     );
